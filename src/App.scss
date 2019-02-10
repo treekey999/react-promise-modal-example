@@ -1,0 +1,12 @@
+.btn-example {
+  padding: 20px;
+  margin: 20px;
+  cursor: pointer;
+  font-size: 20px;
+  border-radius: 4px;
+  color: #fff;
+  
+  &.logout { background-color: #007bff; }
+  &.submit { background-color: #28a745 }
+  &.delete { background-color: #dc3545 }
+}
