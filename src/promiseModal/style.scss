@@ -1,0 +1,20 @@
+.ReactModalPortal {
+  .promise-modal-overlay {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: rgba(0, 0, 0, .3);
+    .ReactModal__Content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      right: auto;
+      bottom: auto;
+      margin-right: -50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
