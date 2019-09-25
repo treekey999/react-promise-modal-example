@@ -27,8 +27,8 @@ const promisableModal = (Component, options = {}) => {
     ReactDOM.render(
       <Component
         {...options}
-        onConfirm={resolve}
-        onCancel={reject}
+        resolve={resolve}
+        reject={reject}
       />,
       wrapper,
     )

@@ -10,19 +10,19 @@ const ConfirmBox = (props) => {
     confirmText,
     cancelText,
     resolve,
-    reject,
+    // reject,
   } = props
 
   const [isOpen, setIsOpen] = useState(true)
 
   const onClickConfirm = () => {
     setIsOpen(false)
-    resolve()
+    resolve({ result: true }) // pass result to promise chain
   }
 
   const onClickCancel = () => {
     setIsOpen(false)
-    reject()
+    resolve({ result: false }) // pass result to promise chain
   }
 
   return (
@@ -77,7 +77,7 @@ ConfirmBox.propTypes = {
   confirmText: PropTypes.string,
   cancelText: PropTypes.string,
   resolve: PropTypes.func, // from promisable HOC
-  reject: PropTypes.func, // from promisable HOC
+  // reject: PropTypes.func, // from promisable HOC
 }
 
 ConfirmBox.defaultProps = {
@@ -87,7 +87,7 @@ ConfirmBox.defaultProps = {
   confirmText: 'Confirm',
   cancelText: 'Cancel',
   resolve: () => {},
-  reject: () => {},
+  // reject: () => {},
 }
 
 export default ConfirmBox

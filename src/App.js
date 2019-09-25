@@ -10,16 +10,19 @@ class App extends Component {
         <button
           type='button'
           className='btn-example logout'
-          onClick={() => {
-            confirmBox({
+          onClick={async () => {
+            // async、await syntax, normal case
+            const { result } = await confirmBox({
               color: 'primary',
               title: 'Logout',
               description: 'Are you sure to logout?',
-            }).then(() => {
+            })
+
+            if (result) {
               console.log('%c Click Confirm!, prepare to logout ...', 'color: blue')
-            }).catch(() => {
-              console.log('%c Click Cancel!, nothing happened ...', 'color: blue')
-            }) 
+            } else {
+              console.log('%c Click Cancel!, nothing happened ...', 'color: black')
+            }
           }}
         >
           Logout
@@ -29,15 +32,18 @@ class App extends Component {
           type='button'
           className='btn-example submit'
           onClick={() => {
+            // promise chain syntax
             confirmBox({
               color: 'info',
               title: 'Submit Form',
               description: 'Are you sure to submit form?',
               confirmText: 'Submit',
-            }).then(() => {
-              console.log('%c Click Confirm!, prepare to fetch data to backend api ...', 'color: green')
-            }).catch(() => {
-              console.log('%c Click Cancel!, nothing happened ...', 'color: green')
+            }).then(({ result }) => {
+              if (result) {
+                console.log('%c Click Confirm!, prepare to fetch data to backend api ...', 'color: green')
+              } else {
+                console.log('%c Click Cancel!, nothing happened ...', 'color: black')
+              }
             }) 
           }}
         >
@@ -47,17 +53,25 @@ class App extends Component {
         <button
           type='button'
           className='btn-example delete'
-          onClick={() => {
-            confirmBox({
-              color: 'danger',
-              title: 'Delete Product',
-              description: 'Are you sure to delete this product?',
-              confirmText: 'Delete',
-            }).then(() => {
-              console.log('%c Click Confirm!, prepare to fetch data to delete product ...', 'color: red')
-            }).catch(() => {
-              console.log('%c Click Cancel!, nothing happened ...', 'color: red')
-            }) 
+          onClick={async () => {
+            // async、await syntax with try catch
+
+            try {
+              const { result } = await confirmBox({
+                color: 'danger',
+                title: 'Delete Product',
+                description: 'Are you sure to delete this product?',
+                confirmText: 'Delete',
+              })
+
+              if (result) {
+                console.log('%c Click Confirm!, prepare to fetch data to delete product ...', 'color: red')
+              } else {
+                console.log('%c Click Cancel!, nothing happened ...', 'color: black')
+              }
+            } catch (e) {
+              console.warn('something went wrong!', e)
+            }
           }}
         >
           Destroy
