@@ -1,0 +1,94 @@
+.formbox-box {
+  outline: none !important;
+  button {
+    cursor: pointer;
+    outline: none !important;
+  }
+
+  .modal-container {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+    padding: 0 20px;
+    background: #007bff;
+    color: #fff;
+    h3 { font-size: 1rem; }
+    .close-btn {
+      background: none;
+      border: none;
+      color: inherit;
+      font-size: 20px;
+    }
+  }
+
+  .modal-content {
+    background: #fff;
+
+    p {
+      font-size: 1rem;
+      padding: 0 20px;
+      min-height: 100px;
+      line-height: 1.5;
+    }
+
+    .button-list {
+      width: 100%;
+      height: 50px;
+      button {
+        width: 50%;
+        float: left;
+        height: 100%;
+        font-size: 1rem;
+        color: #2199e8;
+        padding: 0;
+        background-color: white;
+        border-style: none;
+        outline: none !important;
+        transition: all .3s ease-out;
+        border-radius: 0;
+        
+        &.confirm {
+          color: #FFF;
+          background-color: #007bff;
+          &:focus, &:hover { background-color: #0069d9; }
+        }
+        &.cancel {
+          color: #444;
+          background-color: #e8e8e8;
+          &:focus, &:hover { background-color: #c8c8c8; }
+        }
+      }
+    }
+  }
+
+  .color-danger {
+    .modal-header { background-color: #dc3545; }
+    .modal-content button.confirm {
+      background-color: #dc3545;
+      &:hover { background-color: #c82333; }
+    }
+  }
+  .color-info {
+    .modal-header { background-color: #28a745; }
+    .modal-content button.confirm {
+      background-color: #28a745;
+      &:hover { background-color: #218838; }
+    }
+  }
+  .color-orange {
+    .modal-header { background-color: #f19026; }
+    .modal-content button.confirm {
+      background-color: #f19026;
+      &:hover { background-color: #ea8b23; }
+    }
+  }
+}
