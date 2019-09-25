@@ -23,7 +23,7 @@ const promisableModal = (Component, options = {}) => {
 
   Modal.setAppElement(wrapper)
 
-  const promise = new Promise((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     ReactDOM.render(
       <Component
         {...options}
@@ -32,14 +32,8 @@ const promisableModal = (Component, options = {}) => {
       />,
       wrapper,
     )
-  })
-
-  return promise.then(() => {
+  }).finally(() => {
     unsetPromiseModal(wrapper)
-    return true
-  }, () => {
-    unsetPromiseModal(wrapper)
-    return Promise.reject(false)
   })
 }
 
