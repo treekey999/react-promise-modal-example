@@ -9,4 +9,11 @@
   &.logout { background-color: #007bff; }
   &.submit { background-color: #28a745 }
   &.delete { background-color: #dc3545 }
+  &.form-input { background-color: #f19026; }
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  box-sizing: border-box;
 }
